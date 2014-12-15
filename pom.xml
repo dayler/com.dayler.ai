@@ -3,19 +3,35 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.nuevatel</groupId>
-        <artifactId>voip</artifactId>
-        <version>1.0</version>
-    </parent>
-
+    <groupId>com.dayler</groupId>
     <artifactId>ai</artifactId>
-    <packaging>jar</packaging>
     <name>Asterisk Interface</name>
+    <version>1.0-SNAPSHOT</version>
+
+    <distributionManagement>
+        <repository>
+            <id>ai</id>
+            <name>AI repo</name>
+            <url>https://github.com/dayler/com.dayler.ai</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
-            <groupId>com.nuevatel</groupId>
+            <groupId>com.dayler</groupId>
             <artifactId>common</artifactId>
             <version>${common.version}</version>
         </dependency>
@@ -32,12 +48,23 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>17.0</version>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.31</version>
+            <version>${jdbc.version}</version>
         </dependency>
     </dependencies>
+
+    <properties>
+        <property.folder>target/classes</property.folder>
+        <!-- Properties for Dependencies -->
+        <common.version>1.0-SNAPSHOT</common.version>
+        <log4j.version>1.2.17</log4j.version>
+        <junit.version>4.11</junit.version>
+        <mockito.version>1.9.5</mockito.version>
+        <jdbc.version>5.1.13</jdbc.version>
+		<guava.version>17.0</guava.version>
+    </properties>
 </project>
